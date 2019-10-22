@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 
+
 # Create your views here.
 def index(request):
     return render(request, "index.html")
@@ -28,5 +29,5 @@ def login_action(request):
 @login_required
 def event_manage(request):
     # username = request.COOKIES.get('user', '')  # 读取浏览器cookie
-    username = request.session.get('user', '')  #读取浏览器session
+    username = request.session.get('user', '')  # 读取浏览器session
     return render(request, 'event_manage.html', {'user': username})
